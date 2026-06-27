@@ -1,7 +1,9 @@
 #ifdef __LOCAL
 #define _GLIBCXX_DEBUG
-#elifdef __GNUC__
+#else
+#ifdef __GNUC__
 #pragma GCC optimize("O3")
+#endif
 #endif
 #include<bits/stdc++.h>
 using namespace std;
@@ -66,31 +68,26 @@ constexpr ll B50=1125899906842624LL;
 constexpr ll B60=1152921504606846976LL;
 constexpr ll INF=B60;
 constexpr ll E3=1000LL;
+constexpr ll E4=10000LL;
+constexpr ll E5=100000LL;
 constexpr ll E6=1000000LL;
+constexpr ll E7=10000000LL;
+constexpr ll E8=100000000LL;
 constexpr ll E9=1000000000LL;
 constexpr ll E10=10000000000LL;
+constexpr ll E11=100000000000LL;
 constexpr ll E12=1000000000000LL;
+constexpr ll E13=10000000000000LL;
+constexpr ll E14=100000000000000LL;
 constexpr ll E15=1000000000000000LL;
+constexpr ll E16=10000000000000000LL;
+constexpr ll E17=100000000000000000LL;
 constexpr ll E18=1000000000000000000LL;
 constexpr ll2 D2[]={{0,1},{1,0}};
 constexpr ll2 D4[]={{-1,0},{0,-1},{1,0},{0,1}};
 constexpr ll2 D8[]={{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
 constexpr char ALPH[]="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 constexpr char alph[]="abcdefghijklmnopqrstuvwxyz";
-template<class T>
-using pq=priority_queue<T,vector<T>,greater<>>;
-template<class T>
-using mset=multiset<T>;
-template<class T,class U>
-using mmap=multimap<T,U>;
-template<class T>
-using uset=unordered_set<T>;
-template<class T,class U>
-using umap=unordered_map<T,U>;
-template<class T>
-using vset=unordered_multiset<T>;
-template<class T,class U>
-using vmap=unordered_multimap<T,U>;
 istream&operator>>(istream&is,i128&x){
    ll y;is>>y;x=y;
    return is;
