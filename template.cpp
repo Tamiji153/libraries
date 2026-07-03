@@ -19,6 +19,7 @@ using ld=long double;
 #define repb(i,a,b) for(ll i=(b)-1;i>=(a);--i)
 #define all(a) a.begin(),a.end()
 #define rall(a) a.rbegin(),a.rend()
+#define uniq(a) {sort(all(a));a.erase(unique(all(a)),a.end());}
 struct ll2{
    ll a,b;
    friend auto operator<=>(const ll2&,const ll2&)=default;
@@ -133,6 +134,18 @@ template<class T>
 ostream&operator<<(ostream&os,const multiset<T>&V){
    for(auto a:V)os<<a<<' ';
    return os;
+}
+// Chmax
+template<class T>
+bool cmax(T&a,T b){
+   if(a<b){a=b;return 1;}
+   return 0;
+}
+// Chmin
+template<class T>
+bool cmin(T&a,T b){
+   if(a>b){a=b;return 1;}
+   return 0;
 }
 // Safe Division
 ll dv(ll x,ll y){
