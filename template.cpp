@@ -402,11 +402,11 @@ vector<ll> comp(const vector<ll>&A){
    return ans;
 }
 // MST
-vector<ll3> mst(ll n,vector<ll3>&E){
-   sort(all(E));
+vector<ll3> mst(ll n,const vector<ll3>&E){
+   vector<ll3> F=E;sort(all(F));
    uf U(n);
    vector<ll3> ans;
-   for(auto[w,u,v]:E){
+   for(auto[w,u,v]:F){
       if(!U.same(u,v)){
          U.merge(u,v);
          ans.emplace_back(w,u,v);
