@@ -147,8 +147,10 @@ bool cmin(T&a,T b){
    if(a>b){a=b;return 1;}
    return 0;
 }
-// Plus and Mod
-void pmod(ll&a,ll b,ll mod=MOD){a=(a+b)%mod;}
+// Add and Mod
+void madd(ll&a,ll b,ll mod=MOD){a=(a+b)%mod;}
+// Multiply and Mod
+void mmul(ll&a,ll b,ll mod=MOD){a=a*b%mod;}
 // Safe Division
 ll dv(ll x,ll y){
    if(x>0)return x/y;
