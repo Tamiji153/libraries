@@ -448,7 +448,7 @@ pair<vector<ll>,vector<ll>> lowl(const vector<vector<ll>>&G,ll s){
    vector<ll> dis(n,-1),low(n);
    dis[s]=0;
    ll c=1;
-   auto dfs=[&](auto&&dfs,ll x)->int{
+   auto dfs=[&](auto&&dfs,ll x)->ll{
       for(ll y:G[x]){
          if(dis[y]==-1){
             dis[y]=c;low[y]=c;++c;
