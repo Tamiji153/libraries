@@ -468,6 +468,19 @@ struct dmap:map<S,T>{
    explicit dmap(T def):def(def){}
    T&operator[](const S&i){return map<S,T>::emplace(i,def).first->second;}
 };
+// Min-Plus Convolution
+vector<ll> mpc(vector<ll> X,vector<ll> Y){
+   vector<ll> R={X[0]+Y[0]};
+   ll a=0,b=0;while(1){
+      ll t=1;if(a==X.size()-1){
+         if(b==Y.size()-1)break;
+         else t=0;
+      }else{
+         if(b<Y.size()-1&&X[a+1]-X[a]>Y[b+1]-Y[b])t=0;
+      }if(t){R.push_back(R.back()+X[a+1]-X[a]);++a;}
+      else{R.push_back(R.back()+Y[b+1]-Y[b]);++b;}
+   }return R;
+}
 int main(){
    cin.tie(0)->sync_with_stdio(0);
 }
