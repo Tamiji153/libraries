@@ -6,6 +6,7 @@
 #endif
 #endif
 #include<bits/stdc++.h>
+#include<cassert>
 using namespace std;
 using uint=unsigned int;
 using ll=long long;
@@ -147,10 +148,6 @@ bool cmin(T&a,T b){
    if(a>b){a=b;return 1;}
    return 0;
 }
-// Add and Mod
-void madd(ll&a,ll b,ll mod=MOD){a=(a+b)%mod;}
-// Multiply and Mod
-void mmul(ll&a,ll b,ll mod=MOD){a=a*b%mod;}
 // Safe Division
 ll dv(ll x,ll y){
    if(x>0)return x/y;
@@ -158,6 +155,10 @@ ll dv(ll x,ll y){
 }
 // Safe Mod
 ll md(ll x,ll y){return x-y*dv(x,y);}
+// Add and Mod
+void madd(ll&a,ll b,ll mod=MOD){a=(md(a,mod)+md(b,mod))%mod;}
+// Multiply and Mod
+void mmul(ll&a,ll b,ll mod=MOD){a=md(a,mod)*md(b,mod)%mod;}
 // Mod Power
 ll mpow(ll x,ll y,ll mod=MOD){
    if(y==0)return 1%mod;
