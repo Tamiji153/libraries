@@ -170,7 +170,7 @@ ll mpow(ll x,ll y,ll mod=MOD){
 ll2 egcd(ll a,ll b,ll t=1){
    if(a>b){
       auto[x,y]=egcd(b,a,t);
-      return {x,y};
+      return {y,x};
    }
    if(!a)return {0,t/b};
    auto[x,y]=egcd(b%a,a,t);
