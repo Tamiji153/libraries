@@ -21,6 +21,8 @@ using ld=long double;
 #define all(a) a.begin(),a.end()
 #define rall(a) a.rbegin(),a.rend()
 #define uniq(a) {sort(all(a));a.erase(unique(all(a)),a.end());}
+#define gin(m,G) rep(i,m){ll a,b;cin>>a>>b;G[--a].push_back(--b);G[b].push_back(a);}
+#define win(m,G) rep(i,m){ll a,b,c;cin>>a>>b>>c;G[--a].emplace_back(c,--b);G[b].emplace_back(c,a);}
 struct ll2{
    ll a,b;
    friend auto operator<=>(const ll2&,const ll2&)=default;
@@ -118,12 +120,6 @@ ostream&operator<<(ostream&os,const ll6&o){
    os<<o.a<<' '<<o.b<<' '<<o.c<<' '<<o.d<<' '<<o.e<<' '<<o.f;
    return os;
 }
-// Print Vector
-template<class T>
-ostream&operator<<(ostream&os,const vector<T>&V){
-   for(auto a:V)os<<a<<' ';
-   return os;
-}
 // Print Set
 template<class T>
 ostream&operator<<(ostream&os,const set<T>&V){
@@ -133,6 +129,12 @@ ostream&operator<<(ostream&os,const set<T>&V){
 // Print MultiSet
 template<class T>
 ostream&operator<<(ostream&os,const multiset<T>&V){
+   for(auto a:V)os<<a<<' ';
+   return os;
+}
+// Print Vector
+template<class T>
+ostream&operator<<(ostream&os,const vector<T>&V){
    for(auto a:V)os<<a<<' ';
    return os;
 }
