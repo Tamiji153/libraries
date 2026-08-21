@@ -23,6 +23,8 @@ using ld=long double;
 #define uniq(a) {sort(all(a));a.erase(unique(all(a)),a.end());}
 #define gin(m,G) rep(i,m){ll a,b;cin>>a>>b;G[--a].push_back(--b);G[b].push_back(a);}
 #define win(m,G) rep(i,m){ll a,b,c;cin>>a>>b>>c;G[--a].emplace_back(c,--b);G[b].emplace_back(c,a);}
+#define lwb(A,a) ((ll)(lower_bound(all(A),a)-A.begin()))
+#define upb(A,a) ((ll)(upper_bound(all(A),a)-A.begin()))
 struct ll2{
    ll a,b;
    friend auto operator<=>(const ll2&,const ll2&)=default;
