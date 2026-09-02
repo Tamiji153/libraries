@@ -191,7 +191,7 @@ vector<vector<ll>> imat(ll n,ll mod=MOD){
 // Matrix Prod
 vector<vector<ll>> mtpr(vector<vector<ll>> X,vector<vector<ll>> Y,ll mod=MOD){
    vector Z(X.size(),vector<ll>(Y[0].size(),0));
-   rep(i,X.size())rep(j,Y.size())rep(k,Y[0].size())Z[i][k]=(Z[i][k]+X[i][j]*Y[j][k])%mod;
+   rep(i,(ll)X.size())rep(j,(ll)Y.size())rep(k,(ll)Y[0].size())Z[i][k]=(Z[i][k]+X[i][j]*Y[j][k])%mod;
    return Z;
 }
 // Matrix Power
@@ -202,7 +202,7 @@ vector<vector<ll>> mtpw(vector<vector<ll>> X,ll n,ll mod=MOD){
    return mtpr(Y,Y,mod);
 }
 // Factorial
-pair<vector<ll>,vector<ll>> fact(ll n,ll mod=MOD,bool inv=true){
+pair<vector<ll>,vector<ll>> fact(ll n,ll mod=MOD){
    vector<ll> ans(n+1,1),ians(n+1);
    rep(i,n)ans[i+1]=ans[i]*(i+1)%mod;
    ians[n]=minv(ans[n],mod);
@@ -326,14 +326,14 @@ ll3 td(const vector<vector<ll>>&G){
    ll n=G.size();
    vector<ll> M1(n,INF);
    bfs(G,M1,{0});
-   ll mx=-1,st;
+   ll mx=-1,st=-1;
    rep(i,n)if(M1[i]>mx){
       mx=M1[i];
       st=i;
    }
    vector<ll> M2(n,INF);
    bfs(G,M2,{st});
-   mx=-1;ll gl;
+   mx=-1;ll gl=-1;
    rep(i,n)if(M2[i]>mx){
       mx=M2[i];
       gl=i;
@@ -350,7 +350,7 @@ struct uf{
          A.push_back(u);
          u=par[u];
       }
-      rep(i,A.size())par[A[i]]=u;
+      rep(i,(ll)A.size())par[A[i]]=u;
       return u;
    }
    bool same(ll u,ll v){return find(u)==find(v);}
@@ -377,7 +377,7 @@ struct wuf{
          u=par[u];
       }
       ll sum=dis;
-      rep(i,A.size()){
+      rep(i,(ll)A.size()){
          par[A[i]]=u;
          sum-=dif[A[i]];
          dif[A[i]]+=sum;
@@ -476,11 +476,11 @@ struct dmap:map<S,T>{
 vector<ll> mpc(vector<ll> X,vector<ll> Y){
    vector<ll> R={X[0]+Y[0]};
    ll a=0,b=0;while(1){
-      ll t=1;if(a==X.size()-1){
-         if(b==Y.size()-1)break;
+      ll t=1;if(a==(ll)(X.size()-1)){
+         if(b==(ll)(Y.size()-1))break;
          else t=0;
       }else{
-         if(b<Y.size()-1&&X[a+1]-X[a]>Y[b+1]-Y[b])t=0;
+         if(b<(ll)(Y.size()-1)&&X[a+1]-X[a]>Y[b+1]-Y[b])t=0;
       }if(t){R.push_back(R.back()+X[a+1]-X[a]);++a;}
       else{R.push_back(R.back()+Y[b+1]-Y[b]);++b;}
    }return R;
