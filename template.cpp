@@ -21,8 +21,6 @@ using ld=long double;
 #define all(a) a.begin(),a.end()
 #define rall(a) a.rbegin(),a.rend()
 #define uniq(a) {sort(all(a));a.erase(unique(all(a)),a.end());}
-#define gin(m,G) rep(i,m){ll a,b;cin>>a>>b;G[--a].push_back(--b);G[b].push_back(a);}
-#define win(m,G) rep(i,m){ll a,b,c;cin>>a>>b>>c;G[--a].emplace_back(c,--b);G[b].emplace_back(c,a);}
 #define lwb(A,a) ((ll)(lower_bound(all(A),a)-A.begin()))
 #define upb(A,a) ((ll)(upper_bound(all(A),a)-A.begin()))
 struct ll2{
@@ -140,6 +138,22 @@ ostream&operator<<(ostream&os,const vector<T>&V){
    for(auto a:V)os<<a<<' ';
    return os;
 }
+// Graph Input
+void gin(vector<vector<ll>>&G,ll m,ll d=1){
+   rep(i,m){
+      ll u,v;cin>>u>>v;
+      G[--u].push_back(--v);
+      if(d)G[v].push_back(u);
+   }
+}
+// Weighted Graph Input
+void win(vector<vector<ll2>>&G,ll m,ll d=1){
+   rep(i,m){
+      ll u,v,w;cin>>u>>v>>w;
+      G[--u].emplace_back(w,--v);
+      if(d)G[v].emplace_back(w,u);
+   }
+}
 // Chmax
 template<class T>
 bool cmax(T&a,T b){
@@ -158,7 +172,10 @@ ll dv(ll x,ll y){
    return (x+((-x)/y+1)*y)/y-((-x)/y+1);
 }
 // Safe Mod
-ll md(ll x,ll y){return x-y*dv(x,y);}
+ll md(ll x,ll y){
+   if(x>0)return x%y;
+   return (x+((-x)/y+1)*y)%y;
+}
 // Add and Mod
 void madd(ll&a,ll b,ll mod=MOD){a=(md(a,mod)+md(b,mod))%mod;}
 // Multiply and Mod
@@ -181,7 +198,10 @@ ll2 egcd(ll a,ll b,ll t=1){
    return {y-b/a*x,x};
 }
 // Mod Inversion
-ll minv(ll x,ll mod=MOD){return md(egcd(x,mod).a,mod);}
+ll minv(ll x,ll mod=MOD){
+   x=md(x,mod);
+   return md(egcd(x,mod).a,mod);
+}
 // Identity Matrix
 vector<vector<ll>> imat(ll n,ll mod=MOD){
    vector X(n,vector<ll>(n,0));
