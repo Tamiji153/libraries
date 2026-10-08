@@ -23,6 +23,9 @@ using ld=long double;
 #define uniq(a) {sort(all(a));a.erase(unique(all(a)),a.end());}
 #define lwb(A,a) ((ll)(lower_bound(all(A),a)-A.begin()))
 #define upb(A,a) ((ll)(upper_bound(all(A),a)-A.begin()))
+#define maxe(A) (*max_element(all(A)))
+#define mine(A) (*min_element(all(A)))
+#define sum(A) (accumulate(all(A),0LL))
 struct ll2{
    ll a,b;
    friend auto operator<=>(const ll2&,const ll2&)=default;
