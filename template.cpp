@@ -1,3 +1,4 @@
+//https://github.com/Tamiji153/libraries/blob/main/template.cpp
 #ifdef __LOCAL
 #define _GLIBCXX_DEBUG
 #else
